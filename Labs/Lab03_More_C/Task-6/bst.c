@@ -35,7 +35,30 @@ void delete_tree(node_t **node)
 
 void insert(node_t **node, int ID, char *name)
 {
-  printf("ERROR: Function insert is not implemented\n");
+
+if(*node==NULL){
+
+   node_t * new_node;
+   new_node = (node_t *) malloc(sizeof(node_t));
+   new_node->ID = ID;
+   new_node->name = name;
+   new_node-> left  = NULL;
+   new_node-> right = NULL;
+   *node = new_node;
+
+}
+else if((*node)->ID > ID)
+
+   node_t * new_node;
+   new_node = (node_t *) malloc(sizeof(node_t));
+   new_node->ID = ID;
+   new_node->name = name;
+   new_node-> left  = NULL;
+   new_node-> right = NULL;
+   *node.right = new_node;
+
+
+  ///printf("ERROR: Function insert is not implemented\n");
 }
 
 
@@ -51,14 +74,14 @@ int main(int argc, char const *argv[])
    printf("Inserting nodes to the binary tree.\n");
 
    insert(&root, 445, "sequoia");
-/*
+//
    insert(&root, 162, "fir");
    insert(&root, 612, "baobab");
    insert(&root, 845, "spruce");
    insert(&root, 862, "rose");
    insert(&root, 168, "banana");
    insert(&root, 225, "orchid");
-   insert(&root, 582, "chamomile");  */
+   insert(&root, 582, "chamomile");  //
 
    printf("Printing nodes of the tree.\n");
    print_bst(root);

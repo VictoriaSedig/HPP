@@ -3,10 +3,12 @@
 
 int main(){
 int n=5;
-int **A = (int **)malloc(n*sizeof(int *));
+//int **A = (int **)malloc(n*sizeof(int *));
+int A[n][n]; 
+
 
 for(int i =0; i<n; i++){
-A[i] = (int *)malloc(n*sizeof(int));
+//A[i] = (int *)malloc(n*sizeof(int));
 for(int j =0; j<n; j++){
 
 	if(i==j){
