@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/time.h>
 
 
 double** allocate_matrix(int n);
@@ -8,20 +9,37 @@ void fill_matrix(double** theMatrix, int n);
 void print_matrix(double** theMatrix, int n);
 double get_min_value(double** theMatrix, int n);
 double get_max_value(double** theMatrix, int n);
+double get_wall_seconds();
+
 
 int main()
 {
+  double sec1;
+  double sec2;
   int n;
   printf("\nEnter the dimension for a square matrix:");
   scanf("%d",&n);
   printf("n = %d\n", n);
+  sec1 = get_wall_seconds();
   double** matrixA = allocate_matrix(n);
+  double** matrixB = allocate_matrix(n);
+  sec2= get_wall_seconds();
+  printf("Secs: %lf \n", sec2-sec1);
+  sec1 = get_wall_seconds();
   fill_matrix(matrixA, n);
+  sec2= get_wall_seconds();
+  printf("Secs: %lf \n", sec2-sec1);
+  sec1= get_wall_seconds();
   double minValue = get_min_value(matrixA, n);
   double maxValue = get_max_value(matrixA, n);
+  sec2 = get_wall_seconds();
+  printf("Secs: %lf \n", sec2-sec1);
+
   //print_matrix(matrixA, n);
   printf("Min value: %14.9f  Max value: %14.9f\n", minValue, maxValue);
   deallocate_matrix(matrixA, n);
+  deallocate_matrix(matrixB,n);
+
   return 0;
 }
 
@@ -87,3 +105,76 @@ double get_min_value(double** theMatrix, int n)
   return min;
 }
 
+double get_wall_seconds(){
+struct timeval tv;
+gettimeofday(&tv, NULL);
+double seconds = tv.tv_sec + (double)tv.tv_usec/1000000;
+//printf("The seconds: %lf \n",seconds );
+return seconds;
+}
+
+
+/*
+1
+
+100:
+real  0m34.762s
+user  0m0.003s
+sys 0m0.000s
+
+500:
+real  0m2.699s
+user  0m0.023s
+sys 0m0.008s
+
+
+1000:
+real  0m3.470s
+user  0m0.092s
+sys 0m0.013s
+
+
+5000:
+real  0m6.748s
+user  0m2.321s
+sys 0m0.140s
+
+
+10000:
+real  0m29.225s
+user  0m23.586s
+sys 0m0.476s
+
+
+2
+
+100
+real  0m3.009s
+user  0m0.003s
+sys 0m0.000s
+
+500
+real  0m1.815s
+user  0m0.026s
+sys 0m0.008s
+
+
+1000
+real  0m2.714s
+user  0m0.086s
+sys 0m0.017s
+
+
+5000
+real  0m11.228s
+user  0m2.316s
+sys 0m0.235s
+
+
+10000
+real  0m27.571s
+user  0m23.525s
+sys 0m0.819s
+
+
+*/

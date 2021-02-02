@@ -30,7 +30,26 @@ void print_bst(node_t *node)
 
 void delete_tree(node_t **node)
 {
-  printf("ERROR: Function delete_tree is not implemented\n");
+
+
+//if(*node !=NULL){   
+
+if((*node)->right != NULL && (*node)->left != NULL){
+   delete_tree(&(*node)->right);
+   delete_tree(&(*node)->left);
+}
+else if((*node)->right != NULL && (*node)->left == NULL){
+   delete_tree(&(*node)->right);
+
+}
+else if((*node)->right != NULL && (*node)->left == NULL){
+   delete_tree(&(*node)->left);
+}
+   free(*node);
+   *node =NULL;
+
+//}
+  //printf("ERROR: Function delete_tree is not implemented\n");
 }
 
 void insert(node_t **node, int ID, char *name)
@@ -118,3 +137,4 @@ int main(int argc, char const *argv[])
    print_bst(root);
    return 0;
 }
+

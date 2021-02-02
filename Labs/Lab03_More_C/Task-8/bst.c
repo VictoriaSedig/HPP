@@ -30,7 +30,25 @@ void print_bst(node_t *node)
 
 void delete_tree(node_t **node)
 {
-  printf("ERROR: Function delete_tree is not implemented\n");
+
+//if(*node !=NULL){   
+
+if((*node)->right != NULL && (*node)->left != NULL){
+   delete_tree(&(*node)->right);
+   delete_tree(&(*node)->left);
+}
+else if((*node)->right != NULL && (*node)->left == NULL){
+   delete_tree(&(*node)->right);
+
+}
+else if((*node)->right != NULL && (*node)->left == NULL){
+   delete_tree(&(*node)->left);
+}
+   free(*node);
+   *node =NULL;
+
+//}
+  //printf("ERROR: Function delete_tree is not implemented\n");
 }
 
 void insert(node_t **node, int ID, char *name)
@@ -86,7 +104,21 @@ void insert(node_t **node, int ID, char *name)
 
 void search(node_t *node, int ID)
 {
-  printf("ERROR: Function search is not implemented\n");
+
+if(node->ID > ID && node->left!=NULL){
+search(node->left , ID);
+}
+else if(node->ID < ID && node->right!=NULL)
+{
+search(node->right , ID);
+}
+else if (node->ID == ID){
+printf("Plant with id %d has name %s. \n", node->ID, node->name); }
+else{
+printf("Plant with id %d does not exist! \n", ID );
+}
+
+  //printf("ERROR: Function search is not implemented\n");
 }
 
 
@@ -108,9 +140,8 @@ int main(int argc, char const *argv[])
    printf("Printing nodes of the tree.\n");
    print_bst(root);
 
-
-   //search(root, 168);
-   //search(root, 467);
+   search(root, 168);
+   search(root, 467);
 
    printf("Deleting tree.\n");
    delete_tree(&root);
@@ -118,3 +149,5 @@ int main(int argc, char const *argv[])
    print_bst(root);
    return 0;
 }
+
+
