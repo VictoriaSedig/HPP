@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <sys/time.h>
+#include <time.h>
+#include <math.h>
 
+
+enum { NS_PER_SECOND = 1000000000 };
 
 double** allocate_matrix(int n);
 void deallocate_matrix(double** theMatrix, int n);
@@ -12,8 +17,13 @@ double get_max_value(double** theMatrix, int n);
 double get_wall_seconds();
 
 
+
 int main()
 {
+  struct timespec start, stop;
+  //double accum;
+
+
   double sec1;
   double sec2;
   int n;
@@ -21,24 +31,49 @@ int main()
   scanf("%d",&n);
   printf("n = %d\n", n);
   sec1 = get_wall_seconds();
+  clock_gettime(CLOCK_REALTIME, &start) ;
+
   double** matrixA = allocate_matrix(n);
   double** matrixB = allocate_matrix(n);
   sec2= get_wall_seconds();
-  printf("Secs: %lf \n", sec2-sec1);
+  clock_gettime(CLOCK_REALTIME, &stop) ;
+
+  printf("Allocating matrix twice takes Secs: %lf \n", sec2-sec1);
+  printf("Gettime %f\n", stop.tv_sec-start.tv_sec+(stop.tv_nsec-start.tv_nsec)/pow(10,9));
+
+  clock_gettime(CLOCK_REALTIME, &start) ;
   sec1 = get_wall_seconds();
   fill_matrix(matrixA, n);
   sec2= get_wall_seconds();
-  printf("Secs: %lf \n", sec2-sec1);
+  clock_gettime(CLOCK_REALTIME, &stop) ;
+
+
+  printf("Fill matrix takes Secs: %lf \n", sec2-sec1);
+  printf("Gettime %f\n", stop.tv_sec-start.tv_sec+(stop.tv_nsec-start.tv_nsec)/pow(10,9));
+
   sec1= get_wall_seconds();
+  clock_gettime(CLOCK_REALTIME, &start) ;
+
   double minValue = get_min_value(matrixA, n);
   double maxValue = get_max_value(matrixA, n);
   sec2 = get_wall_seconds();
-  printf("Secs: %lf \n", sec2-sec1);
+  clock_gettime(CLOCK_REALTIME, &stop) ;
+
+  printf("Get min and max value takes Secs: %lf \n", sec2-sec1);
+  printf("Gettime %f\n", stop.tv_sec-start.tv_sec+(stop.tv_nsec-start.tv_nsec)/pow(10,9));
 
   //print_matrix(matrixA, n);
   printf("Min value: %14.9f  Max value: %14.9f\n", minValue, maxValue);
+  sec1= get_wall_seconds();
+  clock_gettime(CLOCK_REALTIME, &start) ;
+
   deallocate_matrix(matrixA, n);
   deallocate_matrix(matrixB,n);
+  sec2 = get_wall_seconds();
+  clock_gettime(CLOCK_REALTIME, &stop) ;
+
+  printf("Dellocate matrix takes Secs: %lf \n", sec2-sec1);
+  printf("Gettime %f\n", stop.tv_sec-start.tv_sec+(stop.tv_nsec-start.tv_nsec)/pow(10,9));
 
   return 0;
 }
@@ -112,6 +147,10 @@ double seconds = tv.tv_sec + (double)tv.tv_usec/1000000;
 //printf("The seconds: %lf \n",seconds );
 return seconds;
 }
+
+
+
+
 
 
 /*

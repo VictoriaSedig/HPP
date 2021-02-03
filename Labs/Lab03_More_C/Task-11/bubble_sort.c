@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 /*
  * Sort an array using bubble sort algorithm.
  */
+
+ ////// time complexity O(n). linear 
 
 /* Swap values pointed by x and y */
 void swap(int *x, int *y)
@@ -61,6 +64,9 @@ void bubble_sort(int *a, int n)
 
 int main(int argc, char const *argv[])
 {
+
+   struct timespec start, stop;
+   clock_gettime(CLOCK_REALTIME, &start) ;
    int n;
 
    if (argc != 2)
@@ -82,6 +88,9 @@ int main(int argc, char const *argv[])
     // print_array(a, n);
 
    printf("Array is sorted!\n");
+
+   clock_gettime(CLOCK_REALTIME, &stop) ;
+   printf("Gettime %f\n", stop.tv_sec-start.tv_sec+(stop.tv_nsec-start.tv_nsec)/pow(10,9));
 
    return 0;
 }

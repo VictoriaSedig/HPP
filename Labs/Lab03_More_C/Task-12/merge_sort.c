@@ -4,7 +4,9 @@ from http://quiz.geeksforgeeks.org/merge-sort/
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <math.h>
 
+/// WOULD CHOOSE MERGE ALGO
 // Merges two subarrays of arr[].
 // First subarray is arr[l..m]
 // Second subarray is arr[m+1..r]
@@ -97,6 +99,9 @@ void fill_in_array(int *a, int n)
 
 int main(int argc, char const *argv[])
 {
+
+   struct timespec start, stop;
+   clock_gettime(CLOCK_REALTIME, &start) ;
    int n;
 
    if (argc != 2)
@@ -113,6 +118,10 @@ int main(int argc, char const *argv[])
    mergeSort(a, 0, n - 1);
 
    printf("Array is sorted!\n");
+
+   clock_gettime(CLOCK_REALTIME, &stop) ;
+   printf("Gettime %f\n", stop.tv_sec-start.tv_sec+(stop.tv_nsec-start.tv_nsec)/pow(10,9));
+
 
    return 0;
 }
