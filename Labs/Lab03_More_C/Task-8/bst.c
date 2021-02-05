@@ -44,7 +44,9 @@ else if((*node)->right != NULL && (*node)->left == NULL){
 else if((*node)->right != NULL && (*node)->left == NULL){
    delete_tree(&(*node)->left);
 }
+   free(*node->name);
    free(*node);
+
    *node =NULL;
 
 //}
@@ -59,7 +61,7 @@ void insert(node_t **node, int ID, char *name)
       node_t * new_node;
       new_node = (node_t *) malloc(sizeof(node_t));
       new_node->ID = ID;
-      new_node->name = name;
+      new_node->name = str(name);
       new_node-> left  = NULL;
       new_node-> right = NULL;
       *node = new_node; 
@@ -71,7 +73,7 @@ void insert(node_t **node, int ID, char *name)
          node_t * new_node;
          new_node = (node_t *) malloc(sizeof(node_t));
          new_node->ID = ID;
-         new_node->name = name;
+         new_node->name = str(name);
          new_node-> left  = NULL;
          new_node-> right = NULL;
          (*node)-> right = new_node;
@@ -87,10 +89,11 @@ void insert(node_t **node, int ID, char *name)
          node_t * new_node;
          new_node = (node_t *) malloc(sizeof(node_t));
          new_node->ID = ID;
-         new_node->name = name;
+         new_node->name =str(name);
          new_node-> left  = NULL;
          new_node-> right = NULL;
          (*node)-> left = new_node;
+
    }
       else{
          insert(&(*node)->left , ID, name);

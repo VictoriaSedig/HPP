@@ -4,6 +4,10 @@
 #include <time.h>
 
 
+//// Space comp blir N*L
+
+////O(N1*(M1=N2)*M2)
+
 
 int main(){
 

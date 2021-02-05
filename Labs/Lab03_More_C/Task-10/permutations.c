@@ -107,7 +107,8 @@ T = 12n + 14.471534
 
 T = 13n + 185.967400
 
-Time complexity  O(exp(N))
+Time complexity  O(exp(N)) ##### O(N*N!)
+
 
 
 */
