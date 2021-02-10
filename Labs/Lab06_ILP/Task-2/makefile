@@ -1,7 +1,7 @@
 CC = gcc
 LD = gcc
 CFLAGS = -O2 -Wall -Werror
-LDFLAGS = 
+LDFLAGS = -funroll-loops 
 RM = /bin/rm -f
 OBJS = main.o testfuncs.o
 EXECUTABLE = unroll_test
