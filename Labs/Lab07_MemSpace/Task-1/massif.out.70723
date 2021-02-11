@@ -1,0 +1,949 @@
+desc: (none)
+cmd: ./sort_test 20000
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=149931
+mem_heap_B=81024
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=1678474
+mem_heap_B=161024
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=1758594
+mem_heap_B=201024
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=1831178
+mem_heap_B=241000
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=peak
+n3: 241000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 159976 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n2: 79976 0x109729: merge_sort (sort_funcs.c:38)
+   n0: 40000 0x109314: main (main.c:46)
+   n2: 39976 0x109729: merge_sort (sort_funcs.c:38)
+    n0: 20000 0x109314: main (main.c:46)
+    n2: 19976 0x109729: merge_sort (sort_funcs.c:38)
+     n0: 10000 0x109314: main (main.c:46)
+     n2: 9976 0x109729: merge_sort (sort_funcs.c:38)
+      n0: 5000 0x109314: main (main.c:46)
+      n2: 4976 0x109729: merge_sort (sort_funcs.c:38)
+       n0: 2500 0x109314: main (main.c:46)
+       n1: 2476 0x109729: merge_sort (sort_funcs.c:38)
+        n0: 2476 in 2 places, all below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=5
+#-----------
+time=1919025
+mem_heap_B=238524
+mem_heap_extra_B=84
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=2032500
+mem_heap_B=241004
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=2122119
+mem_heap_B=240988
+mem_heap_extra_B=164
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=2249248
+mem_heap_B=241004
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=2346644
+mem_heap_B=241016
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=2438046
+mem_heap_B=240708
+mem_heap_extra_B=116
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=2517594
+mem_heap_B=240400
+mem_heap_extra_B=112
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=2645302
+mem_heap_B=221024
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=2736233
+mem_heap_B=241016
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=2851206
+mem_heap_B=241004
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=2938494
+mem_heap_B=240948
+mem_heap_extra_B=148
+mem_stacks_B=0
+heap_tree=detailed
+n3: 240948 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 159924 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n3: 66092 0x109729: merge_sort (sort_funcs.c:38)
+   n0: 40000 0x109314: main (main.c:46)
+   n2: 20468 0x109729: merge_sort (sort_funcs.c:38)
+    n0: 20000 0x109314: main (main.c:46)
+    n0: 468 in 2 places, all below massif's threshold (1.00%)
+   n2: 5624 0x109738: merge_sort (sort_funcs.c:39)
+    n2: 5000 0x109729: merge_sort (sort_funcs.c:38)
+     n2: 5000 0x109729: merge_sort (sort_funcs.c:38)
+      n0: 5000 0x109314: main (main.c:46)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 624 in 1 place, below massif's threshold (1.00%)
+  n2: 13832 0x109738: merge_sort (sort_funcs.c:39)
+   n2: 12580 0x109729: merge_sort (sort_funcs.c:38)
+    n2: 10080 0x109729: merge_sort (sort_funcs.c:38)
+     n0: 10000 0x109314: main (main.c:46)
+     n0: 80 in 2 places, all below massif's threshold (1.00%)
+    n2: 2500 0x109738: merge_sort (sort_funcs.c:39)
+     n2: 2500 0x109729: merge_sort (sort_funcs.c:38)
+      n2: 2500 0x109729: merge_sort (sort_funcs.c:38)
+       n0: 2500 0x109314: main (main.c:46)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 1252 in 1 place, below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=16
+#-----------
+time=3029224
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=3152816
+mem_heap_B=240948
+mem_heap_extra_B=148
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=3233801
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=3326502
+mem_heap_B=241016
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=3471342
+mem_heap_B=221024
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=3538516
+mem_heap_B=201024
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=3635958
+mem_heap_B=241000
+mem_heap_extra_B=176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=3756336
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=detailed
+n3: 236024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 155000 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n3: 55000 0x109729: merge_sort (sort_funcs.c:38)
+   n0: 40000 0x109314: main (main.c:46)
+   n2: 10000 0x109738: merge_sort (sort_funcs.c:39)
+    n2: 10000 0x109729: merge_sort (sort_funcs.c:38)
+     n0: 10000 0x109314: main (main.c:46)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n2: 5000 0x109729: merge_sort (sort_funcs.c:38)
+    n2: 5000 0x109738: merge_sort (sort_funcs.c:39)
+     n2: 5000 0x109729: merge_sort (sort_funcs.c:38)
+      n0: 5000 0x109314: main (main.c:46)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n2: 20000 0x109738: merge_sort (sort_funcs.c:39)
+   n2: 20000 0x109729: merge_sort (sort_funcs.c:38)
+    n0: 20000 0x109314: main (main.c:46)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=24
+#-----------
+time=3858436
+mem_heap_B=240984
+mem_heap_extra_B=168
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=3979497
+mem_heap_B=241004
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=detailed
+n3: 241004 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 159980 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n3: 54684 0x109729: merge_sort (sort_funcs.c:38)
+   n0: 40000 0x109314: main (main.c:46)
+   n2: 12500 0x109738: merge_sort (sort_funcs.c:39)
+    n3: 12500 0x109729: merge_sort (sort_funcs.c:38)
+     n0: 10000 0x109314: main (main.c:46)
+     n2: 2500 0x109738: merge_sort (sort_funcs.c:39)
+      n2: 2500 0x109729: merge_sort (sort_funcs.c:38)
+       n0: 2500 0x109314: main (main.c:46)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 2184 in 1 place, below massif's threshold (1.00%)
+  n2: 25296 0x109738: merge_sort (sort_funcs.c:39)
+   n3: 25156 0x109729: merge_sort (sort_funcs.c:38)
+    n0: 20000 0x109314: main (main.c:46)
+    n2: 5000 0x109738: merge_sort (sort_funcs.c:39)
+     n2: 5000 0x109729: merge_sort (sort_funcs.c:38)
+      n0: 5000 0x109314: main (main.c:46)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 156 in 1 place, below massif's threshold (1.00%)
+   n0: 140 in 1 place, below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=4070745
+mem_heap_B=240400
+mem_heap_extra_B=112
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=4203922
+mem_heap_B=241020
+mem_heap_extra_B=204
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=4351951
+mem_heap_B=231024
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=detailed
+n3: 231024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 150000 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n3: 50000 0x109729: merge_sort (sort_funcs.c:38)
+   n0: 40000 0x109314: main (main.c:46)
+   n2: 10000 0x109738: merge_sort (sort_funcs.c:39)
+    n2: 10000 0x109729: merge_sort (sort_funcs.c:38)
+     n0: 10000 0x109314: main (main.c:46)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+  n2: 20000 0x109738: merge_sort (sort_funcs.c:39)
+   n2: 20000 0x109729: merge_sort (sort_funcs.c:38)
+    n0: 20000 0x109314: main (main.c:46)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=29
+#-----------
+time=4456912
+mem_heap_B=241016
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=4592590
+mem_heap_B=240944
+mem_heap_extra_B=136
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=4717100
+mem_heap_B=240948
+mem_heap_extra_B=164
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=4803053
+mem_heap_B=241016
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=4928597
+mem_heap_B=240716
+mem_heap_extra_B=140
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=4999407
+mem_heap_B=240984
+mem_heap_extra_B=152
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=5124892
+mem_heap_B=240716
+mem_heap_extra_B=140
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=5211669
+mem_heap_B=221024
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=5279072
+mem_heap_B=201024
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=5413473
+mem_heap_B=161024
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=5509777
+mem_heap_B=240864
+mem_heap_extra_B=128
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=5633996
+mem_heap_B=241024
+mem_heap_extra_B=208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=5704878
+mem_heap_B=241020
+mem_heap_extra_B=204
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=5829911
+mem_heap_B=241016
+mem_heap_extra_B=192
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=5916075
+mem_heap_B=240396
+mem_heap_extra_B=100
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=6040185
+mem_heap_B=241028
+mem_heap_extra_B=204
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=6174788
+mem_heap_B=240984
+mem_heap_extra_B=168
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=6235044
+mem_heap_B=240404
+mem_heap_extra_B=124
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=6363683
+mem_heap_B=240708
+mem_heap_extra_B=116
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=6498409
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=6558528
+mem_heap_B=241004
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=6618715
+mem_heap_B=241020
+mem_heap_extra_B=220
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=6685169
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=6745511
+mem_heap_B=239772
+mem_heap_extra_B=92
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=6805719
+mem_heap_B=240984
+mem_heap_extra_B=168
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=6865842
+mem_heap_B=241032
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=6925995
+mem_heap_B=241004
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=6986126
+mem_heap_B=240948
+mem_heap_extra_B=148
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=7046312
+mem_heap_B=240996
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=detailed
+n3: 240996 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 159972 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n3: 59776 0x109738: merge_sort (sort_funcs.c:39)
+   n0: 40000 0x109314: main (main.c:46)
+   n2: 10080 0x109729: merge_sort (sort_funcs.c:38)
+    n2: 10080 0x109738: merge_sort (sort_funcs.c:39)
+     n0: 10000 0x109314: main (main.c:46)
+     n0: 80 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+   n2: 9696 0x109738: merge_sort (sort_funcs.c:39)
+    n2: 5000 0x109729: merge_sort (sort_funcs.c:38)
+     n2: 5000 0x109738: merge_sort (sort_funcs.c:39)
+      n0: 5000 0x109314: main (main.c:46)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n2: 4696 0x109738: merge_sort (sort_funcs.c:39)
+     n2: 2500 0x109729: merge_sort (sort_funcs.c:38)
+      n2: 2500 0x109738: merge_sort (sort_funcs.c:39)
+       n0: 2500 0x109314: main (main.c:46)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 2196 in 1 place, below massif's threshold (1.00%)
+  n2: 20196 0x109729: merge_sort (sort_funcs.c:38)
+   n2: 20196 0x109738: merge_sort (sort_funcs.c:39)
+    n0: 20000 0x109314: main (main.c:46)
+    n0: 196 in 2 places, all below massif's threshold (1.00%)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=58
+#-----------
+time=7127124
+mem_heap_B=221024
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=7194285
+mem_heap_B=201024
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=7254407
+mem_heap_B=240984
+mem_heap_extra_B=152
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=7314630
+mem_heap_B=240400
+mem_heap_extra_B=112
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=7374816
+mem_heap_B=240992
+mem_heap_extra_B=176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=7435017
+mem_heap_B=240940
+mem_heap_extra_B=140
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=7496910
+mem_heap_B=239772
+mem_heap_extra_B=92
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=7557040
+mem_heap_B=240988
+mem_heap_extra_B=180
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=7617226
+mem_heap_B=240864
+mem_heap_extra_B=128
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=7677779
+mem_heap_B=240708
+mem_heap_extra_B=116
+mem_stacks_B=0
+heap_tree=detailed
+n3: 240708 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 159684 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n3: 65624 0x109738: merge_sort (sort_funcs.c:39)
+   n0: 40000 0x109314: main (main.c:46)
+   n2: 20000 0x109738: merge_sort (sort_funcs.c:39)
+    n0: 20000 0x109314: main (main.c:46)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+   n2: 5624 0x109729: merge_sort (sort_funcs.c:38)
+    n2: 5000 0x109738: merge_sort (sort_funcs.c:39)
+     n2: 5000 0x109738: merge_sort (sort_funcs.c:39)
+      n0: 5000 0x109314: main (main.c:46)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n0: 624 in 2 places, all below massif's threshold (1.00%)
+  n2: 14060 0x109729: merge_sort (sort_funcs.c:38)
+   n3: 12812 0x109738: merge_sort (sort_funcs.c:39)
+    n2: 10000 0x109738: merge_sort (sort_funcs.c:39)
+     n0: 10000 0x109314: main (main.c:46)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n2: 2812 0x109729: merge_sort (sort_funcs.c:38)
+     n2: 2500 0x109738: merge_sort (sort_funcs.c:39)
+      n2: 2500 0x109738: merge_sort (sort_funcs.c:39)
+       n0: 2500 0x109314: main (main.c:46)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 312 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 1248 in 2 places, all below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=68
+#-----------
+time=7737900
+mem_heap_B=241004
+mem_heap_extra_B=188
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=7802984
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=7863120
+mem_heap_B=241004
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=7923373
+mem_heap_B=241000
+mem_heap_extra_B=192
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=7989934
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=8050617
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=8110769
+mem_heap_B=241016
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=8170953
+mem_heap_B=240996
+mem_heap_extra_B=180
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=8237826
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=8297972
+mem_heap_B=241004
+mem_heap_extra_B=172
+mem_stacks_B=0
+heap_tree=detailed
+n3: 241004 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 159980 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n3: 73420 0x109738: merge_sort (sort_funcs.c:39)
+   n0: 40000 0x109314: main (main.c:46)
+   n3: 30140 0x109738: merge_sort (sort_funcs.c:39)
+    n0: 20000 0x109314: main (main.c:46)
+    n2: 10060 0x109738: merge_sort (sort_funcs.c:39)
+     n0: 10000 0x109314: main (main.c:46)
+     n0: 60 in 2 places, all below massif's threshold (1.00%)
+    n0: 80 in 1 place, below massif's threshold (1.00%)
+   n2: 3280 0x109729: merge_sort (sort_funcs.c:38)
+    n2: 3280 0x109738: merge_sort (sort_funcs.c:39)
+     n2: 2500 0x109738: merge_sort (sort_funcs.c:39)
+      n2: 2500 0x109738: merge_sort (sort_funcs.c:39)
+       n0: 2500 0x109314: main (main.c:46)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 780 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n2: 6560 0x109729: merge_sort (sort_funcs.c:38)
+   n2: 6560 0x109738: merge_sort (sort_funcs.c:39)
+    n2: 5000 0x109738: merge_sort (sort_funcs.c:39)
+     n2: 5000 0x109738: merge_sort (sort_funcs.c:39)
+      n0: 5000 0x109314: main (main.c:46)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n0: 1560 in 2 places, all below massif's threshold (1.00%)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=78
+#-----------
+time=8358158
+mem_heap_B=241008
+mem_heap_extra_B=208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=8424823
+mem_heap_B=236024
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=8485120
+mem_heap_B=239772
+mem_heap_extra_B=92
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=8545321
+mem_heap_B=241016
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=8605471
+mem_heap_B=241032
+mem_heap_extra_B=200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=8665591
+mem_heap_B=241016
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=8725784
+mem_heap_B=240988
+mem_heap_extra_B=164
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=8786089
+mem_heap_B=240876
+mem_heap_extra_B=148
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=86
+#-----------
+time=8867375
+mem_heap_B=221024
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=8934645
+mem_heap_B=201024
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n3: 201024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 120000 0x1096C5: merge_sort (sort_funcs.c:27)
+  n0: 80000 0x109314: main (main.c:46)
+  n2: 40000 0x109738: merge_sort (sort_funcs.c:39)
+   n0: 40000 0x109314: main (main.c:46)
+   n0: 0 in 2 places, all below massif's threshold (1.00%)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80000 0x1091C4: main (main.c:34)
+ n0: 1024 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=88
+#-----------
+time=9069033
+mem_heap_B=161024
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=89
+#-----------
+time=9337997
+mem_heap_B=81024
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=90
+#-----------
+time=9512383
+mem_heap_B=1024
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
