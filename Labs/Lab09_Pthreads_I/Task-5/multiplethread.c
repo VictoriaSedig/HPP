@@ -9,6 +9,7 @@ void* the_thread_func(void* arg) {
   index = (int*)arg;
   printf("Hello Im pid %d \n", *index);
 
+
   return NULL;
 }
 
@@ -24,9 +25,10 @@ int main(int argc, char const *argv[])
   printf("This is the main() function starting.\n");
 
 	pthread_t thr[index];
-
+  int pids[index];
 	for(int i=0;i<index;i++) {
-	   pthread_create( &thr[i], NULL , the_thread_func ,(void*) &i);
+    pids[i] =i;
+	   pthread_create( &thr[i], NULL , the_thread_func ,(void*) &pids[i]);
 	}
 
 

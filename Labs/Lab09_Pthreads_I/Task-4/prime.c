@@ -48,7 +48,7 @@ int main(int argc, char const *argv[])
   int primes=0;
   printf("This is the main() function starting.\n");
   pthread_t thread;
-  int thread_value = M1;
+
 
 
   printf("the main() function now calling pthread_create().\n");
