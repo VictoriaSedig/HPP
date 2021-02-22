@@ -2,7 +2,7 @@
 #include <stdlib.h>
 int main(int argc, char *argv[]){
     int n;
-    FILE *fp = fopen(argv[1],"r");
+    FILE *fp = fopen("/input_data/"+argv[1],"r");
     fscanf(fp, "%d", &n);
     char *thing = (char*)malloc(50*sizeof(char));
     char *amount = (char*)malloc(50* sizeof(char));

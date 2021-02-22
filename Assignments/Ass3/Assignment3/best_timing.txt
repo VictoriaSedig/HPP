@@ -1,0 +1,2 @@
+0.008
+AMD A10-8700P Radeon R6, 10 Compute Cores 4C+6G

@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
 	pthread_t thr[index];
   int pids[index];
 	for(int i=0;i<index;i++) {
-    pids[i] =i;
+    pids[i] = i;
 	   pthread_create( &thr[i], NULL , the_thread_func ,(void*) &pids[i]);
 	}
 

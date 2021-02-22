@@ -3,6 +3,17 @@
 #include <math.h>
 #include <string.h>
 #include <sys/time.h>
+#include <pthread.h>
+
+
+#define NUM_THREADS 2
+
+
+typedef struct args {
+  int start;
+  int stop; 
+} *args_t;
+
 
 static double get_wall_seconds() {
   struct timeval tv;
@@ -13,6 +24,28 @@ static double get_wall_seconds() {
 
 double **A,**B,**C;
 int n;
+
+
+
+void *thred_func(void *arg)
+{
+  int i, j , k;
+  args_t stuff = arg;
+  int start = stuff->start;
+  int stop = stuff->stop;
+
+
+
+  for(i=start; i<stop; i++){
+    for (j=0; j<n; j++){
+      for (k=0; k<n; k++){
+  C[i][j] += A[i][k] * B[k][j];
+}
+  }
+    }
+return NULL;
+}
+
 
 int main(int argc, char *argv[]) {
   int i, j, k;
@@ -34,6 +67,7 @@ int main(int argc, char *argv[]) {
     C[i] = (double *)malloc(n*sizeof(double));
   }
 
+
   for (i = 0; i<n; i++)
     for(j=0;j<n;j++){
       A[i][j] = rand() % 5 + 1;
@@ -41,14 +75,32 @@ int main(int argc, char *argv[]) {
       C[i][j] = 0.0;
     }
 
+
+  int rounde = round(n/NUM_THREADS);
+  pthread_t thr[NUM_THREADS];
+  args_t arraystuff[NUM_THREADS];
+
   printf("Doing matrix-matrix multiplication...\n");
   double startTime = get_wall_seconds();
 
   // Multiply C=A*B
-  for(i=0; i<n; i++)
-    for (j=0; j<n; j++)
-      for (k=0; k<n; k++)
-	C[i][j] += A[i][k] * B[k][j];
+
+
+  for(int i=0;i<NUM_THREADS;i++) {
+    arraystuff[i] = (args_t)malloc(sizeof(int)*3);
+    arraystuff[i] ->start=rounde*i; 
+    arraystuff[i] ->stop = rounde*i+rounde;
+    if (i==NUM_THREADS-1){
+      arraystuff[i]->stop = n;
+    }
+    pthread_create( &thr[i], NULL , thred_func ,(void*) arraystuff[i]);
+  }
+
+
+  for(int i=0;i<NUM_THREADS;i++) {
+    pthread_join(thr[i], NULL);
+  }
+
 
   double timeTaken = get_wall_seconds() - startTime;
   printf("Elapsed time: %f wall seconds\n", timeTaken);

@@ -20,7 +20,7 @@ int main(){
 	fread(&bufferf, sizeof(float), 1, fp);
 
     // Printing the saved variables
-  	printf("%d %lf %c %f \n ",bufferi, bufferd, bufferc, bufferf);
+  	printf("%d \n %lf \n %c \n %f \n",bufferi, bufferd, bufferc, bufferf);
 
     // Close document
 	fclose(fp);

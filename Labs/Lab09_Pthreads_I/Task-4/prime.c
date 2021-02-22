@@ -73,8 +73,8 @@ int main(int argc, char const *argv[])
 
 
 	printf("Number of primes is %d\n", primes+1);
-  	printf("the main() function now calling pthread_join().\n");
-  	pthread_join(thread, NULL);
+  printf("the main() function now calling pthread_join().\n");
+  pthread_join(thread, NULL);
 
 
 
