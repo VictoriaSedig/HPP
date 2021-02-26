@@ -9,7 +9,7 @@ SSE_ARCH_FLAGS=-msse3
 
 CC=gcc 
 ARCH=-m64 $(SSE_ARCH_FLAGS)
-CFLAGS=-std=gnu99 -O2 $(ARCH) -g -Wall -ffast-math -ftree-vectorizer-verbose=2
+CFLAGS=-std=gnu99 -O3 $(ARCH) -g -Wall -ffast-math -ftree-vectorizer-verbose=2 -fopt-info-vec
 LDFLAGS=$(ARCH)
 LIBS=-lrt
 

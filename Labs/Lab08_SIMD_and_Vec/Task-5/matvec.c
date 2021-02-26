@@ -42,16 +42,36 @@ void matvec_autovec()
 {
     int i, j;
     float add;
+    add=0;
 
-	for (i = 0; i < SIZE; i++){
-        add =0;
+
+    //for (i = 0; i < SIZE; i++)
+      //          for (j = 0; j < SIZE; j++)
+        //                vec_c[i] += mat_a[MINDEX(i, j)] * vec_b[j];
+
+   for (i = 0; i < SIZE; i++){
                 for (j = 0; j < SIZE; j++){
-                        add += mat_a[MINDEX(i, j)] * vec_b[j];	
+                        add += mat_a[MINDEX(i, j)] * vec_b[j];
+                    }
+            vec_c[i]=add;
+            add=0;
+
+        }
+
+
+	/*for (i = 0; i < SIZE; i++){
+        add =0;
+        int minstuff = SIZE*i;
+                for (j = 0; j < SIZE; j++){
+                        float jstuff = vec_b[j];
+                        add += mat_a[minstuff] * jstuff;	
+                        minstuff++;
                     }
         vec_c[i] = add;
     }
 }
-
+*/
+}
 
 /**
  * Reference implementation of the matrix vector multiply
@@ -121,7 +141,7 @@ void init()
         memset(vec_ref, 0, sizeof(*vec_ref));
 }
 
-static void
+static void 
 run_multiply()
 {
         struct timeval ts_start, ts_stop;
@@ -153,8 +173,7 @@ run_multiply()
 	    printf("MISMATCH\n");
 }
 
-int
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
         /* Initialize the matrices with some "random" data. */
         init();

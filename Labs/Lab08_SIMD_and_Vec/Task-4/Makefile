@@ -13,6 +13,7 @@ CFLAGS=-std=gnu99 -O2 $(ARCH) -g -Wall
 LDFLAGS=$(ARCH)
 LIBS=-lrt
 
+
 all:  matvec
 
 matvec: matvec.o util.o

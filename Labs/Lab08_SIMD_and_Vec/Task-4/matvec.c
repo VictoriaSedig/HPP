@@ -14,20 +14,20 @@
 #include <assert.h>
 
 #include <pmmintrin.h>
-
-#ifndef __SSE3__
+/*
+#ifndef _SSE3_
 #error This example requires SSE3
 #endif
-
+*/
 #include "util.h"
 
 /* Size of the matrix and the vector */
-#define SIZE2 14 
+#define SIZE2 14
 #define SIZE (1 << SIZE2) // 2^14
 
-#define MINDEX(n, m) (SIZE*(n)+(m)) // (((n) << SIZE2) | (m))
+#define MINDEX(n, m) (SIZE*(n)+(m)) // ((👎 << SIZE2) | (m))
 
-#define XMM_ALIGNMENT_BYTES 16 
+#define XMM_ALIGNMENT_BYTES 16
 
 static float *restrict mat_a __attribute__((aligned (XMM_ALIGNMENT_BYTES)));
 static float *restrict vec_b __attribute__((aligned (XMM_ALIGNMENT_BYTES)));
@@ -40,56 +40,42 @@ matvec_sse()
         /* Assume that the data size is an even multiple of the 128 bit
          * SSE vectors (i.e. 4 floats) */
         assert(!(SIZE & 0x3));
+        /*
+        for (int row = 0; row < SIZE; row++ ) { // for rows of the matrix
+            __m128 result = _mm_setzero_ps();
+            for (int col = 0; col < SIZE; col += 4) { // for columns of the matrix
+                __m128 shortVec = _mm_loadu_ps(&vec_b[col]); // loads 4 values from the vector
+                __m128 shortRow = _mm_loadu_ps(&mat_a[MINDEX(row, col)]); // loads 4 values from a row in the matrix
+                __m128 mul = _mm_mul_ps(shortRow, shortVec);
+                // sum the values in the mul vector
+                // unroll outer loop to use more than 1 position of the value vector
+                __m128 value = _mm_hadd_ps(_mm_hadd_ps(mul, _mm_setzero_ps()),_mm_setzero_ps());
+                result = _mm_add_ps(result, value);
+            }
+            _mm_storeu_ps(&vec_c[row],result);
+        }*/
+        for (int row = 0; row < SIZE; row += 4) { // for rows of the matrix
+            __m128 result = _mm_setzero_ps();
+            for (int col = 0; col < SIZE; col += 4) { // for columns of the matrix
+                __m128 shortVec = _mm_loadu_ps(&vec_b[col]); // loads 4 values from the vector
+                __m128 shortRow0 = _mm_loadu_ps(&mat_a[MINDEX(row, col)]); // loads 4 values from a row in the matrix
+                __m128 shortRow1 = _mm_loadu_ps(&mat_a[MINDEX(row+1, col)]);
+                __m128 shortRow2 = _mm_loadu_ps(&mat_a[MINDEX(row+2, col)]);
+                __m128 shortRow3 = _mm_loadu_ps(&mat_a[MINDEX(row+3, col)]);
+                __m128 mul0 = _mm_mul_ps(shortRow0, shortVec);
+                __m128 mul1 = _mm_mul_ps(shortRow1, shortVec);
+                __m128 mul2 = _mm_mul_ps(shortRow2, shortVec);
+                __m128 mul3 = _mm_mul_ps(shortRow3, shortVec);
+
+                __m128 value = _mm_hadd_ps(_mm_hadd_ps(mul0, mul1),_mm_hadd_ps(mul2, mul3));
+                result = _mm_add_ps(result, value);
+            }
+            _mm_storeu_ps(&vec_c[row],result);
+        }
 
         /* TASK: Implement your SSE version of the matrix-vector
          * multiplication here.
          */
-// this is significantly better but doesn't do any cache-blocking
-    int i, j, k;
-    //__m128i mat, vec, c;
-    for(k = 0; k < SIZE; ++k) {
-        for(i = 0; i < SIZE; ++i) {
-            vec = _mm_loadu_si128((__m128i*)&vec_b[i]);
-            res = _mm_loadu_si128((__m128i*)&vec_c[i]);
-            mat = _mm_loadu_si128((__m128i*)&mat_a[k][i]);
-            vec_c[i] = _mm_add_epi32(vec, mat);
-            _mm_storeu_si128((__m128i*)&result[i][j], vec_c);
-
-
-    }
-}
-
-
-
-    for(i = 0; i < SIZE; ++i) {
-        for(k = 0; k < SIZE; ++k) {
-            vA = _mm_set1_epi32(mat1[i][k]);
-            for(j = 0; j < N; j += 4) {
-                //result[i][j] += mat1[i][k] * mat2[k][j];
-                mat = _mm_loadu_si128((__m128i*)&mat2_a[k][j]);
-                vR = _mm_loadu_si128((__m128i*)&vec_b[i]);
-                vR = _mm_add_epi32(, _mm_mullo_epi32(vA, vB));
-                _mm_storeu_si128((__m128i*)&result[i][j], vR);
-
-                //DEBUG
-                //printf("vA: %d, %d, %d, %d\n", vA.m128i_i32[0], vA.m128i_i32[1], vA.m128i_i32[2], vA.m128i_i32[3]);
-                //printf("vB: %d, %d, %d, %d\n", vB.m128i_i32[0], vB.m128i_i32[1], vB.m128i_i32[2], vB.m128i_i32[3]);
-                //printf("vR: %d, %d, %d, %d\n", vR.m128i_i32[0], vR.m128i_i32[1], vR.m128i_i32[2], vR.m128i_i32[3]);
-
-                //printf("\n");
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
         /* HINT: You might find at least the following instructions
          * useful:
          *  - _mm_setzero_ps
@@ -100,7 +86,7 @@ matvec_sse()
          * HINT: You can create the sum of all elements in a vector
          * using two hadd instructions.
          */
-
+}
 
 /**
  * Reference implementation of the matrix vector multiply
@@ -111,7 +97,7 @@ matvec_ref()
 {
     int i, j;
 
-	for (i = 0; i < SIZE; i++)
+    for (i = 0; i < SIZE; i++)
                 for (j = 0; j < SIZE; j++)
                         vec_ref[i] += mat_a[MINDEX(i, j)] * vec_b[j];
 }
@@ -182,25 +168,22 @@ run_multiply()
         matvec_sse();
         util_monotonic_time(&ts_stop);
         runtime_sse = util_time_diff(&ts_start, &ts_stop);
-        printf("SSE run completed in %.2f s\n",
-               runtime_sse);
+        printf("SSE run completed in %.2f s\n", runtime_sse);
 
         printf("Starting reference run...\n");
         util_monotonic_time(&ts_start);
-	matvec_ref();
+    matvec_ref();
         util_monotonic_time(&ts_stop);
         runtime_ref = util_time_diff(&ts_start, &ts_stop);
-        printf("Reference run completed in %.2f s\n",
-               runtime_ref);
+        printf("Reference run completed in %.2f s\n", runtime_ref);
 
-        printf("Speedup: %.2f\n",
-               runtime_ref / runtime_sse);
+        printf("Speedup: %.2f\n", runtime_ref / runtime_sse);
 
 
-	if (verify_result())
-	    printf("OK\n");
-	else
-	    printf("MISMATCH\n");
+    if (verify_result())
+        printf("OK\n");
+    else
+        printf("MISMATCH\n");
 }
 
 int
@@ -218,4 +201,3 @@ main(int argc, char *argv[])
 
         return 0;
 }
-

@@ -45,6 +45,10 @@ static float mat_ref[SIZE][SIZE] __attribute__((aligned (XMM_ALIGNMENT_BYTES)));
 
 
 /* TASK: Ensure that this matrix multiplication is autovectorized */
+
+
+
+////// Almost twice as fast
 void matmul_autovec()
 {
   int i, j, k;

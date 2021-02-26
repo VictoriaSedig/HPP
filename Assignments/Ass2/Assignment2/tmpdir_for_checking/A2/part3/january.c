@@ -75,15 +75,30 @@ void delete(node_t** head, int index) {
                 temp_node->next = current->next;
                 free(current);
             }
+        }   
+    }
+}
+
+void quitdelete(node_t** head) {
+
+    
+    if (*head != NULL){
+        node_t* current = *head;
+
+        //Find node to be deleted
+
+        while (current->next != NULL) {
+            delete(&current->next, current->next->index);
 
         }
+        delete(&current, current->index);
         
-
-        
-    }
-
+}
 
 }
+
+
+
 
 //Function for printing the full list
 
@@ -130,7 +145,12 @@ int main(){
           
             printList(head);
         }
-        else if(ch == 'q'){
+        else if(ch == 'Q'){
+
+               quitdelete(&head);
+            
+
+
 
             return 0;
          }
