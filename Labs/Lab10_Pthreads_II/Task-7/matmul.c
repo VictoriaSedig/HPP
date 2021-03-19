@@ -40,9 +40,9 @@ void *thred_func(void *arg)
     for (j=0; j<n; j++){
       for (k=0; k<n; k++){
   C[i][j] += A[i][k] * B[k][j];
-}
   }
     }
+      }
 return NULL;
 }
 

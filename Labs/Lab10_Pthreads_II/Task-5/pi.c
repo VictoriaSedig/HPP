@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 
   dx  = 1.0/intervals;
   pi = 0.0;
-  int p= 8;
+  int p= 4;
   pthread_t thr[p];
 
   args_t arraystuff[p];

@@ -35,10 +35,7 @@ void merge_sort(intType* list_to_sort, int N, int nThreads) {
   //intType* list1 = (intType*)malloc(n1*sizeof(intType));
   //intType* list2 = (intType*)malloc(n2*sizeof(intType));
   int i;
-  for(i = 0; i < n1; i++)
-    list1[i] = list_to_sort[i];
-  for(i = 0; i < n2; i++)
-    list2[i] = list_to_sort[n1+i];
+
   // Sort list1 and list2
 
 
@@ -46,18 +43,28 @@ void merge_sort(intType* list_to_sort, int N, int nThreads) {
   #pragma omp parallel num_threads(2)
     {
       if(omp_get_thread_num()==0){
+        for(i = 0; i < n1; i++)
+          list1[i] = list_to_sort[i];
+
         merge_sort(list1, n1, nThreads/2);
       }
       if (omp_get_thread_num()==1 )
       {
+        for(i = 0; i < n2; i++)
+           list2[i] = list_to_sort[n1+i];
         merge_sort(list2, n2, nThreads/2);
 
       }
     }
   }
   else{
-        merge_sort(list1, n1, nThreads);
-        merge_sort(list2, n2, nThreads);
+      for(i = 0; i < n1; i++)
+        list1[i] = list_to_sort[i];
+      for(i = 0; i < n2; i++)
+        list2[i] = list_to_sort[n1+i];
+      
+      merge_sort(list1, n1, nThreads);
+      merge_sort(list2, n2, nThreads);
   }
 
 
